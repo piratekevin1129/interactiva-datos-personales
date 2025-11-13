@@ -1,4 +1,4 @@
-var total_loader = (7)/*6 audios y el fondo*/
+var total_loader = (5)/*4 audios y el fondo*/
 var current_loader = 0
 function loaderUpdate(){
     current_loader++

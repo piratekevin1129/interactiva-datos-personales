@@ -16,10 +16,38 @@ html,body{
     padding: 0px;
 }
 
+#title-container{
+    position: relative;
+    width: 100%;
+    text-align: center;
+    padding-top: 20px;
+}
+
+#title{
+    position: relative;
+    display: inline-block;
+    width: auto;
+    height: auto;
+    padding: 10px 20px;
+    margin: 0px auto;
+    box-sizing: border-box;
+    border-radius: 25px;
+    background-color: #FF1818;
+
+    font-family: 'Montserrat-Bold';
+    font-size: 21px;
+    color: #ffffff;
+    text-align: center;
+    font-weight: normal;
+    line-height: normal;
+    box-shadow: 0px 5px 10px -3px rgba(0,0,0,0.8);
+}
+
 #fondo{
     position: absolute;
     width: auto;
     height: auto;
+    transform: translate(-50%,-50%);
 
     background-size: 100% 100%;
     background-position: center;
@@ -27,11 +55,22 @@ html,body{
     background-image: url(../images/fondo.png);
 }
 .fondo-in{
-    transition: top 2s 0.5s, left 2s 0.5s, width 2s 0.5s, height 2s 0.5s;
+    transition: top 2s, left 2s, width 2s, height 2s;
 }
    
 #monitor{
-    position: absolute;    
+    position: absolute;
+    width: auto;
+    height: auto;
+    transform: translate(-50%,-50%);
+
+    transition: opacity 1s;
+}
+.monitor-on{
+    opacity: 1;
+}
+.monitor-off{
+    opacity: 0;
 }
 
 #formulario-content{
@@ -47,7 +86,7 @@ html,body{
     scrollbar-width: thin;
     background-color: #ffffff;
     box-sizing: border-box;
-    padding: 50px;
+    padding: 10px;
 }
 #formulario-image{
     position: relative;
@@ -87,7 +126,7 @@ html,body{
 }
 
 .formulario-clicked{
-    background-color: #FABABD !important;
+    background-color: rgba(237,28,36,0.3) !important;
 }
 
 /*********************/
@@ -127,7 +166,7 @@ html,body{
     line-height: normal;
 }
 
-#card-header-opcional{
+#card-header-obligatorio{
     width: auto;
     height: auto;
     box-sizing: border-box;

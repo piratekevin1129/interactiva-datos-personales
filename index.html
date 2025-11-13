@@ -15,15 +15,11 @@
     <div id="container">
         <div id="fondo" class="fondo-out"></div>
         
-        <div id="monitor">
+        <div id="monitor" class="monitor-off">
             <div id="formulario-content">
                 <div id="formulario-image">
                     <img src="assets/images/formulario.jpg" />
-                    <div id="formulario-zonas">
-                        <div class="formulario-zona" onmouseover="overZona()" onclick="clickZona(1,this)"></div>
-                        <div class="formulario-zona" onmouseover="overZona()" onclick="clickZona(2,this)"></div>
-                        <div class="formulario-zona" onmouseover="overZona()" onclick="clickZona(3,this)"></div>
-                    </div>
+                    <div id="formulario-zonas"></div>
                 </div>
             </div>
         </div>
@@ -31,11 +27,15 @@
         <div id="card" class="card-offf">
             <div class="card-header">
                 <h1 id="card-header-title">xxxx</h1>
-                <h2 id="card-header-obligatorio">Opcional</h2>
+                <h2 id="card-header-obligatorio">Obligatorio</h2>
             </div>
             <div class="card-body">
                 <p id="card-body-txt">xxxx</p>
             </div>
+        </div>
+
+        <div id="title-container">
+            <div id="title">Teléfono y correo electrónico</div>
         </div>
     </div>
 
@@ -89,6 +89,7 @@
                             loaderUpdate()
 
                                 loadImg({src:'assets/images/fondo.png', callBack: function(data){
+                                    setZonas()
                                     setFondo(data)
                                     //window.top.postMessage({'completado': false, 'alto': 507}, '*' );
                                     getE('sonido-btn').setAttribute('onclick','clickSonido()')

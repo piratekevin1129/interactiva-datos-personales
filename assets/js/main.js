@@ -41,22 +41,24 @@ function getE(idname){
     return document.getElementById(idname)
 }
 
-
 var global_data = [{
     title:'Teléfono:',
     description:'Obligatorio. Se debe registrar al menos un número de teléfono. Se pueden incluir hasta tres teléfonos.',
     audio:null,
-    obligatorio:true
+    obligatorio:true,
+    w:94,h:14,x:5,y:33
 },{
     title:'Correo electrónico:',
     description:'Obligatorio. Debe diligenciarse con la estructura correcta de un e-mail. Ten en cuenta que no una verificación. La responsabilidad de ingresar una cuenta válida es de la persona que llena el formulario.',
     audio:null,
-    obligatorio:true
+    obligatorio:true,
+    w:22,h:6,x:5,y:48
 },{
     title:'Tipo de sede administrativa:',
     description:'esta parte del formulario permite indicar si la sede administrativa es: <span>Propia</span> <span>En arriendo</span> <span>En comodato</span> <span>En préstamo</span>',
     audio:null,
-    obligatorio:false
+    obligatorio:false,
+    w:40,h:10,x:5,y:89
 }]
 
 function overZona(){
@@ -109,42 +111,70 @@ function setCard(audio){
     global_audio = global_data[audio-1].audio
     global_audio.currentTime = 0
     global_audio.play()
-
+    click_mp3.play()
 
     //.formulario-row-red
 }
+
+function setZonas(){
+    for(i = 0;i<global_data.length;i++){
+        var div_zona = document.createElement('div')
+        div_zona.className = 'formulario-zona formulario-over'
+        div_zona.setAttribute('onmouseover','overZona()')
+        div_zona.setAttribute('onclick','clickZona('+(i+1)+',this)')
+        div_zona.style.width = global_data[i].w+'%'
+        div_zona.style.height = global_data[i].h+'%'
+        div_zona.style.left = global_data[i].x+'%'
+        div_zona.style.top = global_data[i].y+'%'
+
+        getE('formulario-zonas').appendChild(div_zona)
+    }
+}
+
+var animacion_fondo = null;
 
 function setFondo(img){
     var alto_real = img.height
     var ancho_real = img.width
 
     var nuevo_alto = window.innerHeight
-    var porcenaje = (nuevo_alto*100)/alto_real
+    var porcentaje = (nuevo_alto*100)/alto_real
     var nuevo_ancho = (ancho_real*porcentaje)/100
 
     while(nuevo_ancho<window.innerWidth){
-        nuevo_alto--
-        porcenaje = (nuevo_alto*100)/alto_real
+        nuevo_alto++
+        porcentaje = (nuevo_alto*100)/alto_real
         nuevo_ancho = (ancho_real*porcentaje)/100
     }
-
+        
     getE('fondo').style.width = nuevo_ancho+'px'
     getE('fondo').style.height = nuevo_alto+'px'
+    getE('fondo').style.left = '50%'
+    getE('fondo').style.top = '50%'
 
     getE('fondo').className = 'fondo-in'
-
-    var width_zoom = (nuevo_ancho*150)/100
-    var height_zoom = (nuevo_alto*150)/100
-    var left_zoom = 0-((width_zoom-nuevo_ancho)/2)
-    var top_zoom = 0-((height_zoom-nuevo_alto)/2)
-
-    getE('fondo').style.width = width_zoom+'px'
-    getE('fondo').style.height = height_zoom+'px'
-    getE('fondo').style.left = left_zoom+'px'
-    getE('fondo').style.top = top_zoom+'px'
-
-    getE('monitor').style.width = width_zoom+'px'
-    getE('monitor').style.height = height_zoom+'px'
-    getE('monitor').style.left = left_zoom+'px'
-    getE('monitor').style.top = top_zoom+'px'
+    animacion_fondo = setTimeout(function(){
+        clearTimeout(animacion_fondo)
+        animacion_fondo = null;
+        
+        var width_zoom = (nuevo_ancho*150)/100
+        var height_zoom = (nuevo_alto*150)/100
+        
+        getE('fondo').style.width = width_zoom+'px'
+        getE('fondo').style.height = height_zoom+'px'
+        getE('fondo').style.left = '35.20%'
+        getE('fondo').style.top = '56.85%'
+    
+        getE('monitor').style.width = width_zoom+'px'
+        getE('monitor').style.height = height_zoom+'px'
+        getE('monitor').style.left = '35.20%'
+        getE('monitor').style.top = '56.85%'
+    
+        animacion_fondo = setTimeout(function(){
+            clearTimeout(animacion_fondo)
+            animacion_fondo = null;
+    
+            getE('monitor').className = 'monitor-on'
+        },2000)
+    },500)
 }
