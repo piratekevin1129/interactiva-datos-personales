@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es" translate="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos generales</title>
+
+    <link href="assets/css/fonts.css" type="text/css" rel="stylesheet" />
+    <link href="assets/css/main.css" type="text/css" rel="stylesheet" />
+    <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/botones.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/loader.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div id="container">
+        <div id="fondo" class="fondo-out"></div>
+        
+        <div id="monitor">
+            <div id="formulario-content">
+                <div id="formulario-image">
+                    <img src="assets/images/formulario.jpg" />
+                    <div id="formulario-zonas">
+                        <div class="formulario-zona" onmouseover="overZona()" onclick="clickZona(1,this)"></div>
+                        <div class="formulario-zona" onmouseover="overZona()" onclick="clickZona(2,this)"></div>
+                        <div class="formulario-zona" onmouseover="overZona()" onclick="clickZona(3,this)"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="card" class="card-offf">
+            <div class="card-header">
+                <h1 id="card-header-title">xxxx</h1>
+                <h2 id="card-header-obligatorio">Opcional</h2>
+            </div>
+            <div class="card-body">
+                <p id="card-body-txt">xxxx</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="botones">
+        <button id="next-tema-btn" class="next-tema-on" onclick="clickSiguiente()"></button>
+        <button id="sonido-btn" class="sonido-off"></button>
+    </div>
+
+    <div id="loader" class="loader-on">
+        <div id="loader-img"></div>
+        <div id="loader-bar">
+            <div id="loader-bar2"></div>
+        </div>
+    </div>
+    
+    <script src="assets/js/loader.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        var background_mp3 = null;
+        var click_mp3 = null;
+        var over_mp3 = null;
+        
+        var intro_mp3 = null;
+        
+        window.onload = function(){
+            loadTrack({src: 'assets/sounds/background.mp3', callBack: function(data){
+                background_mp3 = data
+                background_mp3.loop = true
+                background_mp3.volume = 0.3
+                loaderUpdate()
+
+                loadTrack({src: 'assets/sounds/click.mp3', callBack: function(data){
+                    click_mp3 = data
+                    loadTrack({src: 'assets/sounds/over.mp3', callBack: function(data){
+                        over_mp3 = data
+                        
+                        loadTrack({src: 'assets/audios/intro.mp3', callBack: function(data){
+                        intro_mp3 = data
+                        loaderUpdate()
+
+                            loadTrack({src: 'assets/audios/1.mp3', callBack: function(data){
+                            global_data[0].audio = data
+                            loaderUpdate()
+
+                            loadTrack({src: 'assets/audios/2.mp3', callBack: function(data){
+                            global_data[1].audio = data
+                            loaderUpdate()
+
+                            loadTrack({src: 'assets/audios/3.mp3', callBack: function(data){
+                            global_data[2].audio = data
+                            loaderUpdate()
+
+                                loadImg({src:'assets/images/fondo.png', callBack: function(data){
+                                    setFondo(data)
+                                    //window.top.postMessage({'completado': false, 'alto': 507}, '*' );
+                                    getE('sonido-btn').setAttribute('onclick','clickSonido()')
+                                    unsetLoader()
+    
+                                    intro_mp3.play()
+                                    clickSonido()
+                                }})
+
+                            
+                            }})
+                            }})
+                            }})
+
+                        }})
+                    }})
+                }})
+            }})
+        }
+
+        var toggle_sonido = false
+        function clickSonido(){
+            if(!toggle_sonido){
+                toggle_sonido = true
+                getE('sonido-btn').className = 'sonido-on'
+                background_mp3.play()
+            }else{
+                toggle_sonido = false
+                getE('sonido-btn').className = 'sonido-off'
+                background_mp3.pause()
+            }
+        }
+
+        function clickSiguiente(){
+            parent.nextTema()
+        }
+    </script>
+</body>
+</html>

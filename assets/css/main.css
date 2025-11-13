@@ -1,0 +1,212 @@
+html,body{
+    position: relative;
+    display: block;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#container{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+#fondo{
+    position: absolute;
+    width: auto;
+    height: auto;
+
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(../images/fondo.png);
+}
+.fondo-in{
+    transition: top 2s 0.5s, left 2s 0.5s, width 2s 0.5s, height 2s 0.5s;
+}
+   
+#monitor{
+    position: absolute;    
+}
+
+#formulario-content{
+    position: absolute;
+    width: 31.46%;
+    height: 29.7%;
+    left: 31.03%;
+    top: 22.88%;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    scrollbar-color: #999999 rgba(0,0,0,0);
+    scrollbar-width: thin;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    padding: 50px;
+}
+#formulario-image{
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin: 0px;
+}
+#formulario-image img{
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0px;
+}
+
+#formulario-zonas{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+}
+
+.formulario-zona{
+    position: absolute;
+    cursor: pointer;
+}
+.formulario-over{
+    animation: animacion-over-col 0.75s infinite;
+}
+@keyframes animacion-over-col{
+    0%,100%{
+        background-color: rgba(141,186,48,0);
+    }
+    50%{
+        background-color: rgba(141,186,48,0.4);
+    }
+}
+
+.formulario-clicked{
+    background-color: #FABABD !important;
+}
+
+/*********************/
+#card{
+    position: absolute;
+    width: 500px;
+    height: auto;
+    right: 50px;
+    transform: translateY(-50%);
+    
+    border-radius: 12px;
+    box-shadow: 0px 6px 20px -5px rgba(0,0,0,0.8);
+    overflow: hidden;
+}
+
+.card-header{
+    position: relative;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    background-color: #8DBA30;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+#card-header-title{
+    display: block;
+    width: auto;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Montserrat-Bold';
+    font-size: 18px;
+    color: #004C56;
+    font-weight: normal;
+    line-height: normal;
+}
+
+#card-header-opcional{
+    width: auto;
+    height: auto;
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 5px 20px;
+    border-radius: 25px;
+    background-color: #FFFFFF;
+
+    font-family: 'Montserrat-SemiBold';
+    font-size: 18px;
+    color: #628326;
+    font-weight: normal;
+    line-height: normal;
+    text-align: center;
+}
+
+.card-body{
+    position: relative;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    padding: 20px;
+    background-color: #ffffff;
+}
+
+#card-body-txt{
+    position: relative;
+    display: block;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+
+    font-family: 'Montserrat-Medium';
+    font-size: 16px;
+    color: #000000;
+    font-weight: normal;
+    line-height: normal;
+    text-align: left;
+}
+
+.card-on{
+    animation: animacion-card-on 0.5s 1 forwards ease-out;
+}
+.card-off{
+    animation: animacion-card-off 0.5s 1 forwards ease-in;
+}
+.card-offf{
+    visibility: hidden;
+}
+@keyframes animacion-card-on{
+    0%{
+        top: 70%;
+        opacity: 0;
+        animation-timing-function: ease-in;
+    } 
+    90%{
+        top: 48%;
+        opacity: 1;
+        animation-timing-function: ease-out;
+    }
+    100%{
+        top: 50%;
+        opacity: 1;
+    }
+}
+
+@keyframes animacion-card-off{
+    0%{
+        top: 50%;
+        opacity: 1;
+        animation-timing-function: ease-in;
+    } 
+    10%{
+        top: 48%;
+        opacity: 1;
+        animation-timing-function: ease-out;
+    }
+    100%{
+        top: 70%;
+        opacity: 0;
+    }
+}

@@ -1,0 +1,120 @@
+@media (min-width: 1542px){
+    #title{
+        padding-top: 50px;
+        margin-bottom: 100px;
+    }
+    #title h1{
+        font-size: 24px;
+    }
+    #title p{
+        font-size: 21px;
+    }
+    #title p img{
+        width: 20px;
+        height: 20px;
+        top: 3px;
+    }
+
+    #departamento{
+        width: 500px;
+        height: 541px;
+    }
+    #departamento > img:nth-child(3){
+        width: 50px;
+        top: 74%;
+        left: 48%;
+    }
+
+    .tooltip{
+        width: 150px;
+        top: 67%;
+        left: 48%;
+    }
+    .tooltip-foto{
+        height: 150px;
+    }
+        
+    .tooltip-txt{
+        padding: 10px;
+    }
+    .tooltip-txt p{
+        font-size: 12px;
+    }
+
+    #formulario{
+        width: 1200px;
+    }
+
+    .formulario-row > div{
+        padding: 7px 10px;
+    }
+
+    .formulario-col h1{
+        font-size: 18px;
+    }
+    .formulario-label,.formulario-check-text{
+        font-size: 15px;
+    }
+    
+    .formulario-value{
+        min-width: 60px;
+        font-size: 15px;
+    }
+    .formulario-input{
+        padding: 5px 5px;
+        font-size: 15px;
+        min-width: 50px;
+        min-height: 25px;
+    }
+
+    .formulario-check-input{
+        width: 18px;
+        height: 18px;
+    }
+    .checked::after{
+        width: 16px;
+        height: 16px;
+        top: -1px;
+        left: -1px;
+    }
+
+    .formulario-number-3{
+        width: calc(35px * 3);
+        width: -moz-calc(35px * 3);
+    }
+    .formulario-number-2{
+        width: calc(35px * 2);
+        width: -moz-calc(35px * 2);
+    }
+
+    .formulario-number-3 span,
+    .formulario-number-2 span{
+        width: 32px;
+        font-size: 18px;
+    }
+
+    #card{
+        width: 900px;
+        margin-top: 40px;
+    }
+
+    .card-header{
+        padding: 15px 30px;
+    }
+
+    #card-header-title{
+        font-size: 21px;
+    }
+
+    #card-header-opcional{
+        font-size: 21px;
+    }
+
+    .card-body{
+        padding: 25px;
+    }
+
+    #card-body-txt{
+        font-size: 18px;
+    }
+}
