@@ -55,7 +55,7 @@ var global_data = [{
     w:22,h:6,x:5,y:48
 },{
     title:'Tipo de sede administrativa:',
-    description:'esta parte del formulario permite indicar si la sede administrativa es: <span>Propia</span> <span>En arriendo</span> <span>En comodato</span> <span>En préstamo</span>',
+    description:'Esta parte del formulario permite indicar si la sede administrativa es: <br><br><span>Propia</span> <span>En arriendo</span> <span>En comodato</span> <span>En préstamo</span>',
     audio:null,
     obligatorio:false,
     w:40,h:10,x:5,y:89

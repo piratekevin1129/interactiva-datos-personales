@@ -206,6 +206,15 @@ html,body{
     line-height: normal;
     text-align: left;
 }
+#card-body-txt > span{
+    display: block;
+    box-sizing: border-box;
+    padding-left: 20px;
+    background-repeat: no-repeat;
+    background-size: 15px;
+    background-position: 0px 2px;
+    background-image: url(../images/icon-list.svg);
+}
 
 .card-on{
     animation: animacion-card-on 0.5s 1 forwards ease-out;
